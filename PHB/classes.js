@@ -84,7 +84,7 @@ const CLASSES_DATA = {
   },
 };
 
-const scrapClasses = async () => {
+const scrapPHBClasses = async () => {
   const document = await pdfjs.getDocument(file).promise;
   const classesKeys = Object.keys(CLASSES_DATA);
   for (const playerClassKey of classesKeys) {
@@ -105,8 +105,9 @@ const scrapClasses = async () => {
     console.log(
       `${playerClass.name} has been parsed into raw text successfully`
     );
+    fs.writeFileSync(`./dist/${playerClass.name}.txt`, playerClass.rawText);
   }
   fs.appendFileSync("./dist/classes.json", JSON.stringify(CLASSES_DATA));
 };
 
-module.exports = scrapClasses;
+module.exports = scrapPHBClasses;
