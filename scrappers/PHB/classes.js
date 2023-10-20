@@ -1,7 +1,7 @@
 const fs = require("fs");
 const pdfjs = require("pdfjs-dist");
 
-const createRangeArray = require("../helpers/createRangeArray");
+const createRangeArray = require("../../helpers/createRangeArray");
 
 /* EXTRACT ALL CLASSES TEXT */
 
